@@ -1,18 +1,40 @@
 /*
 公共头部
 */
-.header{ background-color: rgb(255, 147, 2);height: 1.877333rem; }
-.header .return{background: url("./icon/left.png") no-repeat; background-size: 100%; width: 0.388267rem;height: 0.661333rem;position: absolute;left:0.469333rem;top:0.725333rem;}
-.header .title{
-  margin-left: 42%;
-  float: left;
-  text-align: center;
-  color: rgb(247,247,247);
-  font-size: 0.682667rem;
+.el-header {
+  height : 100px;
+  background : url('./header_bg.jpg') no-repeat;
 }
-.header .headerTitle{ float: left;margin-top: 3%;  font-size: 0.682667rem;margin-left: 42%;color:#fff;}
-.header .message{
-  float: right;
-  margin-right: 4%;
+.el-header .logo {
+  margin-top : 22.5px;
+  margin-left : 3%;
 }
-.header .message img{ height: 0.810667rem; }
+.el-header .logo img{
+//width : 10rem;
+}
+.el-header .menu {
+  margin-top : 35px;
+  text-align : center;
+  margin-left : 15%;
+}
+.el-header .menu a{
+  font-size: 1.8rem;
+  color: #ffffff;
+  font-weight : 500;
+}
+.el-header .menu a.act{
+  border-bottom: 1px solid white;
+}
+.el-header .adminInfo{
+  margin-top : 35px;
+  text-align : right;
+  width: 10.5%;
+}
+.el-header .adminInfo,.el-header .adminInfo a{
+  font-size: 1.4rem;
+  color: #ffffff;
+  font-weight : 500;
+}
+.el-header .adminInfo .userName{
+
+}

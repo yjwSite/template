@@ -1,15 +1,27 @@
 <template>
-  <div id="app">
+  <el-container id="app" class="is-vertical" style="min-height: 900px;">
     <router-view/>
-  </div>
+    <FooterBar></FooterBar>
+  </el-container>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import FooterBar from './components/footer/Footer.vue'
+  export default {
+    name: 'app',
+    components: {
+      FooterBar
+    }
+  }
 </script>
 
 <style>
   @import "./assets/stylus/common.styl";
+
+  .containerMain {
+    min-width: 1000px;
+  }
+  .el-container.is-vertical {
+    flex-direction: column;
+  }
 </style>
