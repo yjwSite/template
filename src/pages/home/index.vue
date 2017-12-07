@@ -10,10 +10,7 @@
     <HeaderBar :menuState="menuState"></HeaderBar>
     <BreadCrumb :options="breadOptions" class="breadcreamb"></BreadCrumb>
     <el-main>
-      <!--<Welcome></Welcome>-->
-      <!--<MenuCount :menuCountData="menuCountData" style="margin-top: 20px;"></MenuCount>-->
-      <!--<ModuleBar :title="moduleBarTitle" style="margin-top: 20px;"></ModuleBar>-->
-      <!--<QuickEntry style="margin-top: 20px;"></QuickEntry>-->
+      <p>welcome!!</p>
     </el-main>
   </el-container>
 </template>
@@ -56,5 +53,6 @@
   }
 </script>
 
-<style>
+<style lang="less" scoped>
+  @import "home.less";
 </style>

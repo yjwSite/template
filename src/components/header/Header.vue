@@ -84,6 +84,6 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import "./header.styl";
 </style>
