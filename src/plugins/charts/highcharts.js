@@ -7,12 +7,12 @@
  */
 "use strict" // 定义为严格模式编码要求
 
-const Highcharts = require('highcharts/highstock');
+import Highcharts from 'highcharts/highstock'
 
 // 加载 地图 模块
 require('highcharts/modules/map')(Highcharts);
 
-module.exports = (id, option) => {
+export default (id, option) => {
   // 创建图表
   Highcharts.chart(id, option);
 }

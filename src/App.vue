@@ -1,16 +1,13 @@
 <template>
   <el-container id="app" class="is-vertical" style="min-height: 900px;">
     <router-view/>
-    <FooterBar></FooterBar>
   </el-container>
 </template>
 
 <script>
-  import FooterBar from './components/footer/Footer.vue'
   export default {
     name: 'app',
     components: {
-      FooterBar
     }
   }
 </script>

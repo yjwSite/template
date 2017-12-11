@@ -8,7 +8,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/home/index.vue'
-import ProductDetail from '@/pages/product/detail.vue'
+import Layout from '@/pages/layout.vue'
+import Product from './product/product'
 import checkToken from './checkToken'
 
 Vue.use(Router)
@@ -21,9 +22,12 @@ const router = new Router({
       component: Index
     },
     {
-      path: '/product/detail',
-      name: 'product-detail',
-      component: ProductDetail
+      path: '/manage',
+      name: 'manage',
+      component: Layout,
+      children:[
+        ...Product
+      ]
     }
   ]
 })

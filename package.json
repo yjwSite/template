@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-template",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "the template of vue2",
   "author": "shocaokuangmo",
   "private": true,
@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
-    "babel-helper-vue-jsx-merge-props": "^2.0.2",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
+    "d3": "^3.5.17",
+    "echarts": "^3.7.2",
     "element-ui": "^2.0.4",
+    "highcharts": "^6.0.2",
     "jquery": "^3.2.1",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^2.6.7",

@@ -7,7 +7,7 @@
  */
 "use strict" // 定义为严格模式编码要求
 
-const d3 = require("d3");
+import d3 from 'd3'
 
 function _drawingRender(svg, option) {
   if(option.series){
@@ -174,7 +174,7 @@ function _gridRender(svg, option) {
     .style("stroke", "#ddd");
 }
 
-module.exports = (id, option) => {
+export default (id, option) => {
   let svg = d3.select(`#${id}`).append("svg")
     .attr("width", option.svgInfo.svgWidth)
     .attr("height", option.svgInfo.svgHeight);
@@ -197,4 +197,6 @@ module.exports = (id, option) => {
       break;
     }
   }
+
+  return svg
 }

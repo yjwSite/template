@@ -7,9 +7,7 @@
 */
 <template>
   <div>
-    <HeaderBar :headTitle="headTitle" ret="true"></HeaderBar>
     <h3>产品详情页</h3>
-    <FooterBar></FooterBar>
   </div>
 </template>
 <script>

@@ -7,6 +7,10 @@
  */
 "use strict" // 定义为严格模式编码要求
 
+import d3 from './d3'
+import echarts from './echarts'
+import highcharts from './highcharts'
+
 class ChartsFactory {
   constructor ({ type, id, options }) {
     this.type = type;
@@ -15,10 +19,33 @@ class ChartsFactory {
     this.init();
   }
   init () {
-    require('./' + this.type)(this.id, this.options);
+    switch (this.type)
+    {
+      case 'd3':{
+        this.chartsInstance = d3(this.id, this.options)
+        return
+      }
+      case 'echarts':{
+        this.chartsInstance = echarts(this.id, this.options)
+        return
+      }
+      case 'highcharts':{
+        this.chartsInstance = highcharts(this.id, this.options)
+        return
+      }
+      default: {
+        this.chartsInstance = echarts(this.id, this.options)
+        return
+      }
+    }
+  }
+  getChartsInstance () {
+    return this.chartsInstance
   }
 }
 
-exports.newInstance = (config) => {
-  return new ChartsFactory(config)
+export default {
+  newInstance: (config) => {
+    return new ChartsFactory(config)
+  }
 }

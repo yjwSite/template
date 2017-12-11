@@ -8,29 +8,30 @@
 import authAPIs from '../api/authAPIs'
 export default (to, from, next) => {
   // console.log("userId", localStorage)
-  if(localStorage.token){
-    authAPIs.checkToken({
-      token: "token"
-    }).then(({ data }) => {
-      // if(data.code == 10012) {
-      //   next()
-      // }
-      // else{
-      //   next({
-      //     path: '/login',
-      //     query: { redUrl: to.fullPath }
-      //   })
-      // }
-      next()
-    }).catch(ex => {
-      next()
-    })
-  }
-  else{
-    // next(false)
-    next({
-      path: '/login',
-      query: { redUrl: to.fullPath }
-    })
-  }
+  // if(localStorage.token){
+  //   authAPIs.checkToken({
+  //     token: "token"
+  //   }).then(({ data }) => {
+  //     // if(data.code == 10012) {
+  //     //   next()
+  //     // }
+  //     // else{
+  //     //   next({
+  //     //     path: '/login',
+  //     //     query: { redUrl: to.fullPath }
+  //     //   })
+  //     // }
+  //     next()
+  //   }).catch(ex => {
+  //     next()
+  //   })
+  // }
+  // else{
+  //   // next(false)
+  //   next({
+  //     path: '/login',
+  //     query: { redUrl: to.fullPath }
+  //   })
+  // }
+  next()
 }

@@ -7,17 +7,20 @@
  */
 "use strict" // 定义为严格模式编码要求
 
-const echarts = require('echarts');
-require('echarts/extension/bmap/bmap');
+import echarts from 'echarts'
+// import 'echarts/chart/map' // 2.0
+import 'echarts/map/js/china' // 3.0
 
 function getDom (id){
   return document.getElementById(id);
 };
-module.exports = (id, option) => {
+export default (id, option) => {
 
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(getDom(id));
 
   // 绘制图表
   myChart.setOption(option);
+
+  return myChart
 }
