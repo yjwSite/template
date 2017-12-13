@@ -46,6 +46,7 @@
       }
     },
     mounted () {
+      layer.alert('hello world!')
     },
     methods: {
 
