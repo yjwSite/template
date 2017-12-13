@@ -24,9 +24,7 @@
       let vm = this;
       return {
         tableOptions: {
-          selection: {
-            handleSelectionChange (rows) {
-            }
+          handleSelectionChange (rows) {
           }
         }
       }
@@ -105,15 +103,7 @@
             }
           },
           selection: {
-            width: 55,
-            handleSelectionChange (rows) {
-              console.log(rows)
-              if(rows.length>0){
-
-              }
-              else{
-              }
-            }
+            width: 55
           },
           toolbar: [{
             xtype: "toolbarRow",
@@ -192,7 +182,10 @@
                 alert(`我要导入`)
               }
             }]
-          }]
+          }],
+          handleSelectionChange (rows) {
+            console.log(rows)
+          }
         }
       },
       loadMore (currentPage) {

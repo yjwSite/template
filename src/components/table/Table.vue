@@ -67,6 +67,7 @@
       </el-table-column>
       <el-table-column align="center"
         v-for="item in options.thead"
+        :type="item.xtype"
         :prop="item.prop"
         :label="item.label"
         :width="item.width"
