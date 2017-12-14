@@ -11,7 +11,9 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: ['babel-polyfill', './src/main.js'],
+    vendor: ['vue', 'vue-router', 'vuex'],
+    lib: ['element-ui']
   },
   output: {
     path: config.build.assetsRoot,
