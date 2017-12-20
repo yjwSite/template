@@ -7,16 +7,9 @@
  */
 "use strict" // 定义为严格模式编码要求
 
-import testAPIs from '../../../api/testAPIs'
-
 class productListService {
   constructor (data) {
     this.data = data
-  }
-  async getProductList () {
-    let params = this.data
-    let { data } =  await testAPIs.test(params)
-    return data
   }
   getTableOptions ({ searchFun, rowEditFun, rowDeleteFun, resetPwdFun, handleSizeChangeFun, handleCurrentChangeFun, createUserFun, handleSelectionChangeFun }) {
     let self = this

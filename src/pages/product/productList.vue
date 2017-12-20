@@ -11,6 +11,7 @@
   </el-main>
 </template>
 <script>
+  import testAPIs from '../../api/testAPIs'
   import productListService from './service/productListService'
   import MTable from '../../components/table/Table.vue'
 
@@ -34,8 +35,8 @@
         pageSize = 10,
         total = 400;
 
-      let { result } = await productListService({}).getProductList()
-      vm.initTable(result, pageNo, pageSize, total)
+      let { data } = await testAPIs.test({})
+      vm.initTable(data.result, pageNo, pageSize, total)
 
     },
     methods: {
@@ -46,8 +47,8 @@
         // 查询
         let searchFun = async () => {
           let keyword = vm.$refs.myTable.getRefs("keyword").$refs.input.value
-          let { result } = await productListService({ keyword: keyword, pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize }).getProductList()
-          vm.initTable(result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
+          let { data } = await testAPIs.test({ keyword: keyword, pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize })
+          vm.initTable(data.result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
         }
 
         // 行编辑
@@ -68,15 +69,15 @@
         // 改变pageSize事件
         let handleSizeChangeFun = async (val) => {
           vm.tableOptions.pageInfo.pageSize = val
-          let { result } = await productListService({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize }).getProductList()
-          vm.initTable(result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
+          let { data } = await testAPIs.test({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize })
+          vm.initTable(data.result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
         }
 
         // 改变currentPage事件
         let handleCurrentChangeFun = async (val) => {
           vm.tableOptions.pageInfo.currentPage = val
-          let { result } = await productListService({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize }).getProductList()
-          vm.initTable(result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
+          let { data } = await testAPIs.test({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize })
+          vm.initTable(data.result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
         }
 
         // 新建用户
