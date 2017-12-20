@@ -55,7 +55,7 @@ export default {
         url: '/portalInterface'
       }
     },
-    defaultHost: 'http://www.dev.com',//'http://192.168.112.3:8089',//'',//'http://210.13.50.98:10133', //http://www.youedata.com/portalInterface/goods/category
+    defaultHost: 'http://www.youedata.com',//'http://192.168.112.3:8089',//'',//'http://210.13.50.98:10133', //http://www.youedata.com/portalInterface/goods/category
     defaultUrl: ''
   },
   siteInfo:{

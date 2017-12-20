@@ -6,8 +6,13 @@
  * 描述 ：子路由 - 产品模块
  */
 import DetailPage from '@/pages/product/detail.vue'
+import ProductListPage from '@/pages/product/productList.vue'
 export default [{
   path: '/product/detail',
   name: 'product-detail',
   component: DetailPage
+},{
+  path: '/product/list',
+  name: 'product-list',
+  component: ProductListPage
 }]

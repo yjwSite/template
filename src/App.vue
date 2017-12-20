@@ -1,5 +1,5 @@
 <template>
-  <el-container id="app" class="is-vertical" style="min-height: 900px;">
+  <el-container id="app" class="is-vertical" style="height:1200px;">
     <router-view/>
   </el-container>
 </template>
@@ -13,7 +13,7 @@
 </script>
 
 <style>
-  @import "./assets/stylus/common.styl";
+  @import "./assets/less/common.less";
 
   .containerMain {
     min-width: 1000px;

@@ -14,6 +14,8 @@ export default (module) => {
 
   module.apis.forEach((item) => {
     apiObject[item.name] = (params) => {
+      // 所有接口必传参数
+      if (localStorage.token) params['token'] = localStorage.token
       return $ajax({
         method: item.method,
         url: `${config.apis.modules[module.moduleName].host}${config.apis.modules[module.moduleName].url || config.apis.defaultUrl}${item.url}`,

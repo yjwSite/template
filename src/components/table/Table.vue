@@ -4,6 +4,7 @@
 * 日期 ：2017/11/14
 *
 * 描述 ：公共组件 - 表格
+*        2017/12/18: 可点击列加入；列可自定义icon；
 */
 <template>
   <el-container class="tableContainer is-vertical">
@@ -61,18 +62,34 @@
       header-cell-class-name="myheadclass"
       :size="options.size">
       <el-table-column align="center"
-        v-if="options.selection"
-        type="selection"
-        :width="options.selection.width">
+                       v-if="options.selection"
+                       type="selection"
+                       :width="options.selection.width">
       </el-table-column>
-      <el-table-column align="center"
-        v-for="item in options.thead"
-        :type="item.xtype"
-        :prop="item.prop"
-        :label="item.label"
-        :width="item.width"
-        :formatter="item.formatter">
-      </el-table-column>
+      <template v-for="item in options.thead">
+        <el-table-column v-if="item.xtype==='link'"
+                         align="center"
+                         :prop="item.prop"
+                         :label="item.label"
+                         :width="item.width"
+                         :formatter="item.formatter">
+          <template slot-scope="scope">
+            <a href="javascript:void(0);" @click="item.onClick(scope.$index, scope.row)" :style="item.style">
+              <i v-if="item.icon" :class="item.iconClassName" :style="item.iconStyle"></i>
+              <!--<i class="el-icon-time"></i>-->
+              {{ scope.row[item.prop] }}
+            </a>
+          </template>
+        </el-table-column>
+        <el-table-column v-else
+                         align="center"
+                         :type="item.xtype"
+                         :prop="item.prop"
+                         :label="item.label"
+                         :width="item.width"
+                         :formatter="item.formatter">
+        </el-table-column>
+      </template>
       <el-table-column
         :fixed="options.operation.fixed"
         :width="options.operation.width"
@@ -81,8 +98,8 @@
         v-if="options.operation">
         <template slot-scope="scope">
           <el-button v-for="item in options.operation.items" v-if="item.xtype==='button'"
-            size="mini"
-            @click="item.onClick(scope.$index, scope.row)">{{item.buttonText}}</el-button>
+                     size="mini"
+                     @click="item.onClick(scope.$index, scope.row)">{{item.buttonText}}</el-button>
           <el-button v-for="item in options.operation.items" v-if="item.xtype==='link'"
                      type="text"
                      size="mini"
@@ -93,15 +110,15 @@
       </el-table-column>
     </el-table>
     <el-pagination v-if="options.pageInfo"
-      @size-change="options.pageInfo.handleSizeChange"
-      @current-change="options.pageInfo.handleCurrentChange"
-      :current-page="options.pageInfo.currentPage"
-      :page-sizes="options.pageInfo.pageSizes"
-      :page-size="options.pageInfo.pageSize"
-      :layout="options.pageInfo.layout"
-      :total="options.pageInfo.total"
-      :class="options.pageInfo.className"
-      class="pagination">
+                   @size-change="options.pageInfo.handleSizeChange"
+                   @current-change="options.pageInfo.handleCurrentChange"
+                   :current-page="options.pageInfo.currentPage"
+                   :page-sizes="options.pageInfo.pageSizes"
+                   :page-size="options.pageInfo.pageSize"
+                   :layout="options.pageInfo.layout"
+                   :total="options.pageInfo.total"
+                   :class="options.pageInfo.className"
+                   class="pagination">
     </el-pagination>
   </el-container>
 </template>
@@ -124,7 +141,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .tableContainer{
     display: block;
   }

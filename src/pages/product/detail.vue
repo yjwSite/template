@@ -6,25 +6,14 @@
 * 描述 ：产品详情页
 */
 <template>
-  <div>
-    <h3>产品详情页</h3>
-  </div>
+  <el-main>
+    <div style="width: 100%;">产品详情页</div>
+  </el-main>
 </template>
 <script>
-    import HeaderBar from '../../components/header/Header.vue'
-    import FooterBar from '../../components/footer/Footer.vue'
-    export default {
-        name: 'detail',
-        components: {
-          HeaderBar,
-          FooterBar
-        },
-        data () {
-          return {
-            headTitle: "产品详情页"
-          }
-        }
-    }
+  export default {
+    name: 'detail'
+  }
 </script>
 
 <style></style>

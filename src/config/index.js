@@ -13,4 +13,4 @@ export default {
   test: testConfig,
   production: productionConfig
 
-}['production']
+}['development']
