@@ -11,7 +11,7 @@
   </el-main>
 </template>
 <script>
-  import ProductListService from './service/ProductListService'
+  import productListService from './service/productListService'
   import MTable from '../../components/table/Table.vue'
 
   export default {
@@ -34,7 +34,7 @@
         pageSize = 10,
         total = 400;
 
-      let { result } = await ProductListService({}).getProductList()
+      let { result } = await productListService({}).getProductList()
       vm.initTable(result, pageNo, pageSize, total)
 
     },
@@ -46,7 +46,7 @@
         // 查询
         let searchFun = async () => {
           let keyword = vm.$refs.myTable.getRefs("keyword").$refs.input.value
-          let { result } = await ProductListService({ keyword: keyword, pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize }).getProductList()
+          let { result } = await productListService({ keyword: keyword, pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize }).getProductList()
           vm.initTable(result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
         }
 
@@ -68,14 +68,14 @@
         // 改变pageSize事件
         let handleSizeChangeFun = async (val) => {
           vm.tableOptions.pageInfo.pageSize = val
-          let { result } = await ProductListService({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize }).getProductList()
+          let { result } = await productListService({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize }).getProductList()
           vm.initTable(result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
         }
 
         // 改变currentPage事件
         let handleCurrentChangeFun = async (val) => {
           vm.tableOptions.pageInfo.currentPage = val
-          let { result } = await ProductListService({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize }).getProductList()
+          let { result } = await productListService({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize }).getProductList()
           vm.initTable(result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
         }
 
@@ -89,7 +89,7 @@
           alert(`您选中了${rows.length}行`)
         }
 
-        vm.tableOptions = ProductListService({
+        vm.tableOptions = productListService({
           dataList: dataList,
           pageNo: pageNo,
           pageSize: pageSize,

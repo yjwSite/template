@@ -9,7 +9,7 @@
 
 import testAPIs from '../../../api/testAPIs'
 
-class ProductListService {
+class productListService {
   constructor (data) {
     this.data = data
   }
@@ -154,5 +154,5 @@ class ProductListService {
 }
 
 export default (data) => {
-  return new ProductListService(data)
+  return new productListService(data)
 }
