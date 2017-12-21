@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-template",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "the template of vue2",
   "author": "shocaokuangmo",
   "private": true,
@@ -21,6 +21,7 @@
     "highcharts": "^6.0.2",
     "jquery": "^3.2.1",
     "layui-layer": "^1.0.9",
+    "lodash": "^4.17.4",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^2.6.7",
     "vue-infinite-scroll": "^2.0.2",

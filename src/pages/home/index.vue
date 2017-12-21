@@ -46,7 +46,11 @@
       }
     },
     mounted () {
+      // layui-layer
       layer.alert('hello world!')
+      // lodash
+      let arr = _.chunk(['a', 'b', 'c', 'd'], 3)
+      console.log(arr)
     },
     methods: {
 

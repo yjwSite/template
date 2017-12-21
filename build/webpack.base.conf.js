@@ -28,7 +28,8 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'jquery': resolve('node_modules/jquery/src/jquery'),
-      'layer': resolve('node_modules/layui-layer/layer')
+      'layer': resolve('node_modules/layui-layer/layer'),
+      'lodash': resolve('node_modules/lodash')
     }
   },
   module: {
@@ -73,7 +74,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       jQuery: "jquery",
       $: "jquery",
-      layer: "layer"
+      layer: "layer",
+      _: "lodash"
     })
   ]
 }
