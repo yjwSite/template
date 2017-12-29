@@ -7,8 +7,9 @@
  */
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/pages/home/index.vue'
-import Layout from '@/pages/layout.vue'
+const Index = r => require.ensure([], () => r(require('@/pages/home/index.vue')), 'Index')
+const Layout = r => require.ensure([], () => r(require('@/pages/layout.vue')), 'Layout')
+// const Product = r => require.ensure([], () => r(require('./product/product.js')), 'Product')
 import Product from './product/product'
 import middlewares from '../middlewares'
 

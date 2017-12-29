@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>插入音乐</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="../internal.js"></script>
+    <link rel="stylesheet" type="text/css" href="music.css" />
+    <style type="text/css">
+        .filePicker div{
+            width: 80%;
+            height: 30%;
+            padding: 8px 3px 8px 3px;
+        }
+        #videoPicker div{
+            width: 80%;
+            height: 30%;
+            padding: 8px 3px 8px 3px;
+        }
+        #audioPicker div{
+            width: 80%;
+            height: 30%;
+            padding: 8px 3px 8px 3px;
+        }
+        .progress{
+            height: 14px;
+            width:200px;
+            margin-bottom: 10px
+        }
+        .progress-bar{
+            height:14px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="videoTab">
+        <div id="tabHeads" class="tabhead">
+            <span tabSrc="upload" data-content-id="upload">上传音乐</span>
+        </div>
+        <div id="tabBodys" class="tabbody">
+            <div id="upload" class="panel focus">
+                <div id="upload_left">
+                    <div id="queueList" class="queueList">
+                        <div id="audioContent" class="uploader-list"></div>
+                        <input id="baiduUploadAudioUrl" type="hidden">
+                        <div id="audioPicker" class="filePicker" style="width: 100px;margin-left: 50%;margin-top: 30%;">选择音频</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jquery -->
+<script type="text/javascript" src="../../third-party/jquery-1.10.2.min.js"></script>
+
+<!-- webuploader -->
+<script type="text/javascript" src="../../third-party/webuploader/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../../third-party/webuploader/webuploader.css">
+
+<!-- video -->
+<script type="text/javascript" src="music.js"></script>
+</body>
+</html>
