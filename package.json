@@ -22,6 +22,7 @@
     "jquery": "^3.2.1",
     "layui-layer": "^1.0.9",
     "lodash": "^4.17.4",
+    "moment": "^2.20.1",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^2.6.7",
     "vue-infinite-scroll": "^2.0.2",
