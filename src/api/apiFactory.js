@@ -7,6 +7,7 @@
  */
 import config from '../config'
 import $ajax from '../plugins/axios'
+import headerConfig from './headerConfig'
 
 export default (module) => {
 
@@ -14,13 +15,19 @@ export default (module) => {
 
   module.apis.forEach((item) => {
     apiObject[item.name] = (params) => {
+      let locationId = ""
+      if(params && params.URI) {
+        locationId = `/${params.URI}`
+        delete params.URI
+      }
+
       // 所有接口必传参数
-      if (localStorage.token) params['token'] = localStorage.token
       return $ajax({
         method: item.method,
-        url: `${config.apis.modules[module.moduleName].host}${config.apis.modules[module.moduleName].url || config.apis.defaultUrl}${item.url}`,
+        url: `${config.apis.modules[module.moduleName].host}${config.apis.modules[module.moduleName].url || config.apis.defaultUrl}${item.url}${locationId}`,
         data: params,
-        headers: item.headers || { "Content-Type" : "application/x-www-form-urlencoded" }
+        responseFun: module.responseFun,
+        headers: item.headers || headerConfig()
       })
     }
   })

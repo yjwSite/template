@@ -5,6 +5,7 @@
  *
  * 描述 ：接口类 - 测试
  */
+import apiBase from './apiBase'
 import apiFactory from './apiFactory'
 
 const module = {
@@ -17,4 +18,15 @@ const module = {
   }]
 }
 
-export default apiFactory(module)
+class apiSub extends apiBase {
+  constructor(module) {
+    super()
+    this.moduleName = module.moduleName
+    this.apis = module.apis
+  }
+  responseFun (data) {
+    super.responseFun(data)
+  }
+}
+
+export default apiFactory(new apiSub(module))
