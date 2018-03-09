@@ -20,7 +20,7 @@
       }
     },
     mounted () {
-      //初始化UE
+      // 初始化UE http://blog.csdn.net/zrk1000/article/details/46865093
       let vm = this
       UE.delEditor('editor')
       vm.editor = UE.getEditor('editor', vm.$props.options.config)
