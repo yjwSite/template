@@ -1,9 +1,9 @@
 /**
 * 作者 ：食草狂魔
 *
-* 日期 ：2017/10/26
+* 日期 ：2018/3/9
 *
-* 描述 ：产品详情页
+* 描述 ：用法
 */
 <template>
   <el-main>
@@ -53,5 +53,5 @@
     }
   }
 </script>
-
-<style></style>
+<style lang="less" scoped>
+</style>
