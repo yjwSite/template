@@ -11,10 +11,6 @@
   </div>
 </template>
 <script>
-  import '../../../static/js/lib/ueditor/ueditor.config.js'
-  import '../../../static/js/lib/ueditor/ueditor.all.js'
-  import '../../../static/js/lib/ueditor/lang/zh-cn/zh-cn.js'
-
   export default {
     name: 'UEditor',
     props: ['options'],
@@ -26,7 +22,8 @@
     mounted () {
       //初始化UE
       let vm = this
-      vm.editor = UE.getEditor('editor', vm.$props.options.config);
+      UE.delEditor('editor')
+      vm.editor = UE.getEditor('editor', vm.$props.options.config)
     },
     destoryed () {
       this.editor.destory();

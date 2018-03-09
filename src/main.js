@@ -22,6 +22,11 @@ import moment from 'moment'
 moment.locale('zh-cn');
 Vue.prototype.$moment = moment
 
+// ueditor
+import '../static/js/lib/ueditor/ueditor.config.js'
+import '../static/js/lib/ueditor/ueditor.all.js'
+import '../static/js/lib/ueditor/lang/zh-cn/zh-cn.js'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
