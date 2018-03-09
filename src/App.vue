@@ -1,5 +1,5 @@
 <template>
-  <el-container id="app" class="is-vertical" style="height:1200px;">
+  <el-container id="app" class="is-vertical">
     <router-view/>
   </el-container>
 </template>
