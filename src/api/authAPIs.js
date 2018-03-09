@@ -38,9 +38,6 @@ class apiSub extends apiBase {
     this.moduleName = module.moduleName
     this.apis = module.apis
   }
-  responseFun (data) {
-    super.responseFun(data)
-  }
 }
 
 export default apiFactory(new apiSub(module))

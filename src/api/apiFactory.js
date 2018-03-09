@@ -26,7 +26,10 @@ export default (module) => {
         method: item.method,
         url: `${config.apis.modules[module.moduleName].host}${config.apis.modules[module.moduleName].url || config.apis.defaultUrl}${item.url}${locationId}`,
         data: params,
+        requestFun: module.requestFun,
+        requestError: module.requestError,
         responseFun: module.responseFun,
+        responseError: module.responseError,
         headers: item.headers || headerConfig()
       })
     }

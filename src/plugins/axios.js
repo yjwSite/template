@@ -53,7 +53,16 @@ function getOptions({ method, url, data, headers }) {
 }
 
 // export default
-export default ({ method, url, data, responseFun, headers = { "Content-Type" : "application/x-www-form-urlencoded" } }) => {
+export default ({
+                  method,
+                  url,
+                  data,
+                  requestFun,
+                  requestError,
+                  responseFun,
+                  responseError,
+                  headers = { "Content-Type" : "application/x-www-form-urlencoded" }
+}) => {
   let $options = getOptions({
     method: method,
     url: url,
@@ -63,15 +72,10 @@ export default ({ method, url, data, responseFun, headers = { "Content-Type" : "
   // console.log("options:", JSON.stringify($options))
   // console.log("options type:", typeof $options)
   try {
-    $ajax.interceptors.request.use(config => {
-      console.log("==========>请求拦截器", JSON.stringify(config))
-      return config
-    }, error => {
-      console.log("==========>请求拦截器", JSON.stringify(error))
-    })
-    $ajax.interceptors.response.use(responseFun, error => {
-      console.log("==========>响应拦截器",JSON.stringify(error))
-    })
+    // 请求拦截器
+    $ajax.interceptors.request.use(requestFun, requestError)
+    // 响应拦截器
+    $ajax.interceptors.response.use(responseFun, responseError)
     return $ajax($options)
   }
   catch (ex) {
