@@ -11,6 +11,7 @@
     <UEditor :options="UEditorOptions" ref="myEditor"></UEditor>
     <el-button @click="getContent">获取Content</el-button>
     <el-button @click="getHtmlContent">获取HtmlContent</el-button>
+    <el-button @click="setContent">设置Content</el-button>
   </el-main>
 </template>
 <script>
@@ -40,6 +41,10 @@
       getHtmlContent () {
         let vm = this
         console.log(vm.$refs.myEditor.getInstance().getContent())
+      },
+      setContent () {
+        let vm = this
+        vm.$refs.myEditor.getInstance().setContent("<p style='color:red;'>初始化赋值</p>")
       }
     }
   }
