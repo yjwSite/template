@@ -13,7 +13,7 @@
 <script>
   import testAPIs from '../../api/testAPIs'
   import productListService from './service/productListService'
-  import MTable from '../../components/table/Table.vue'
+  import MTable from '@/components/table/Table.vue'
 
   export default {
     name: 'productList',

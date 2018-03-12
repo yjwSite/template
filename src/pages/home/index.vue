@@ -15,8 +15,8 @@
   </el-container>
 </template>
 <script>
-  import HeaderBar from '../../components/header/Header.vue'
-  import BreadCrumb from '../../components/breadcrumb/BreadCrumb.vue'
+  import HeaderBar from '@/components/header/Header.vue'
+  import BreadCrumb from '@/components/breadcrumb/BreadCrumb.vue'
   export default {
     name: 'index',
     components: {

@@ -23,5 +23,5 @@
 </script>
 
 <style scoped>
-  @import "./bread.styl";
+  @import "breadcrumb.less";
 </style>

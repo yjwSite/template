@@ -17,8 +17,8 @@
   </el-container>
 </template>
 <script>
-  import HeaderBar from '../components/header/Header.vue'
-  import LeftBar from '../components/leftbar/LeftBar.vue'
+  import HeaderBar from '@/components/header/Header.vue'
+  import LeftBar from '@/components/leftbar/LeftBar.vue'
 
   export default {
     name: 'layout',

@@ -15,7 +15,7 @@
   </el-main>
 </template>
 <script>
-  import UEditor from '../../components/ueditor/UEditor.vue'
+  import UEditor from '@/components/ueditor/UEditor.vue'
   export default {
     name: 'detail',
     components: {
