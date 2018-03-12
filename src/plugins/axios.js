@@ -23,6 +23,18 @@ function getOptions({ method, url, data, headers }) {
     $ajaxOptions["method"] = "POST"
     $ajaxOptions["data"] = data
   }
+  else if("put" == method.toLowerCase()){
+    $ajaxOptions["method"] = "PUT"
+    $ajaxOptions["data"] = data
+  }
+  else if("delete" == method.toLowerCase()){
+    $ajaxOptions["method"] = "DELETE"
+    $ajaxOptions["params"] = data
+  }
+  else if("patch" == method.toLowerCase()){
+    $ajaxOptions["method"] = "PATCH"
+    $ajaxOptions["params"] = data
+  }
   else{
     $ajaxOptions["method"] = "GET"
     $ajaxOptions["params"] = data
@@ -35,19 +47,22 @@ function getOptions({ method, url, data, headers }) {
   $ajaxOptions["url"] = url
   $ajaxOptions["baseURL"] = config.apis.defaultHost
   $ajaxOptions["headers"] = headers
-  $ajaxOptions["transformRequest"] = [function transformRequest (data, headers) {
-    /* 这里是重点，其他的其实可以照着axios的源码抄 */
-    /* 这里就是用来解决POST提交json数据的时候是直接把整个json放在request payload中提交过去的情况
-     * 这里简单处理下，把 {name: 'admin', pwd: 123}这种转换成name=admin&pwd=123就可以通过
-     * x-www-form-urlencoded这种方式提交
-     * */
-    if (data) {
-      let keys = Object.keys(data)
-      /* 这里就是把json变成url形式，并进行encode */
-      return encodeURI(keys.map(name => `${name}=${data[name]}`).join('&'))
-    }
-    return data
-  }]
+
+  /* 【如果需要 x-www-form-urlencoded 这种方式提交，请解开注释】 */
+  // $ajaxOptions["transformRequest"] = [function transformRequest (data, headers) {
+  //   /* 这里是重点，其他的其实可以照着axios的源码抄 */
+  //   /* 这里就是用来解决POST提交json数据的时候是直接把整个json放在request payload中提交过去的情况
+  //    * 这里简单处理下，把 {name: 'admin', pwd: 123}这种转换成name=admin&pwd=123就可以通过
+  //    * x-www-form-urlencoded这种方式提交
+  //    * */
+  //   if (data) {
+  //     let keys = Object.keys(data)
+  //     /* 这里就是把json变成url形式，并进行encode */
+  //     return encodeURI(keys.map(name => `${name}=${data[name]}`).join('&'))
+  //   }
+  //   return data
+  // }]
+
 
   return $ajaxOptions
 }
