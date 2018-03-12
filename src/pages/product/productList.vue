@@ -109,5 +109,6 @@
     }
   }
 </script>
-<style>
+<style lang="less" scoped>
+  @import "product.less";
 </style>

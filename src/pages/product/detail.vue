@@ -7,7 +7,7 @@
 */
 <template>
   <el-main>
-    <div style="width: 100%;">产品详情页</div>
+    <div class="detailTitle" style="width: 100%;">产品详情页</div>
     <UEditor :options="UEditorOptions" ref="myEditor"></UEditor>
     <el-button @click="getContent">获取Content</el-button>
     <el-button @click="getHtmlContent">获取HtmlContent</el-button>
@@ -54,4 +54,6 @@
   }
 </script>
 
-<style></style>
+<style lang="less" scoped>
+  @import "product.less";
+</style>

@@ -3,7 +3,7 @@
  *
  * 日期 ：2017/11/21
  *
- * 描述 ：token验证
+ * 描述 ：页面token验证
  */
 import authAPIs from '../api/authAPIs'
 export default (to, from, next) => {
