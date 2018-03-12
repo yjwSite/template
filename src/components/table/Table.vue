@@ -8,6 +8,7 @@
 *        2018/03/09: 工具栏加入标签，可写文字可写分隔符'|'
 *                    表格显示加入iconLink、iconText、纯iconImage、标签tag列
 *                    操作列加入下拉菜单功能
+*                    枚举分页栏样式布局
 */
 <template>
   <el-container class="tableContainer is-vertical">
