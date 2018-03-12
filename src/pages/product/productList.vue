@@ -47,8 +47,8 @@
         // 查询
         let searchFun = async () => {
           let keyword = vm.$refs.myTable.getRefs("keyword").$refs.input.value
-          let { data } = await testAPIs.test({ keyword: keyword, pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize })
-          vm.initTable(data.result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
+          let { data } = await testAPIs.test({ keyword: keyword, pageNo: vm.tableOptions.pageInfo.currentPage = 1, pageSize: vm.tableOptions.pageInfo.pageSize })
+          vm.tableOptions.data = data.result
         }
 
         // 行编辑
@@ -70,14 +70,14 @@
         let handleSizeChangeFun = async (val) => {
           vm.tableOptions.pageInfo.pageSize = val
           let { data } = await testAPIs.test({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize })
-          vm.initTable(data.result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
+          vm.tableOptions.data = data.result
         }
 
         // 改变currentPage事件
         let handleCurrentChangeFun = async (val) => {
           vm.tableOptions.pageInfo.currentPage = val
           let { data } = await testAPIs.test({ pageNo: vm.tableOptions.pageInfo.currentPage, pageSize: vm.tableOptions.pageInfo.pageSize })
-          vm.initTable(data.result, vm.tableOptions.pageInfo.currentPage, vm.tableOptions.pageInfo.pageSize, total)
+          vm.tableOptions.data = data.result
         }
 
         // 新建用户

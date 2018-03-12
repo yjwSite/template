@@ -215,6 +215,7 @@
 
 <script>
   export default {
+    name: 'MTable',
     props: ['options'],
     data () {
       return {
