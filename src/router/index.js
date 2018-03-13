@@ -7,10 +7,16 @@
  */
 import Vue from 'vue'
 import Router from 'vue-router'
-const Index = r => require.ensure([], () => r(require('@/pages/home/index.vue')), 'Index')
-const Layout = r => require.ensure([], () => r(require('@/pages/layout.vue')), 'Layout')
-// const Product = r => require.ensure([], () => r(require('./product/product.js')), 'Product')
+
+// 一级页面
+const Index = () => import('@/pages/home/index.vue')
+// 布局页面
+const Layout = () => import('@/pages/layout.vue')
+
+// 产品模块
 import Product from './product/product'
+
+// 路由中间件
 import middlewares from '../middlewares'
 
 Vue.use(Router)
