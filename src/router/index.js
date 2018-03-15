@@ -14,7 +14,7 @@ const Index = () => import('@/pages/home/index.vue')
 const Layout = () => import('@/pages/layout.vue')
 
 // 产品模块
-import Product from './product/product'
+import product from './product/product'
 
 // 路由中间件
 import middlewares from '../middlewares'
@@ -33,7 +33,7 @@ const router = new Router({
       name: 'manage',
       component: Layout,
       children:[
-        ...Product
+        ...product
       ]
     }
   ]

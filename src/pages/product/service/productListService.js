@@ -11,7 +11,7 @@ class productListService {
   constructor (data) {
     this.data = data
   }
-  getTableOptions ({ searchFun, rowEditFun, rowDeleteFun, resetPwdFun, handleSizeChangeFun, handleCurrentChangeFun, createUserFun, handleSelectionChangeFun }) {
+  getTableOptions ({ searchFun, addCartFun, rowDeleteFun, resetPwdFun, handleSizeChangeFun, handleCurrentChangeFun, toShopCartFun, handleSelectionChangeFun }) {
     let self = this
     let options = {
       thead: [{
@@ -46,8 +46,8 @@ class productListService {
       operation:{
         items: [{
           xtype: "link", // linkButton
-          buttonText: "编辑",
-          onClick: rowEditFun
+          buttonText: "加入购物车",
+          onClick: addCartFun
         },{
           xtype: "link", // commonButton
           buttonText: "删除",
@@ -134,9 +134,9 @@ class productListService {
         },{
           xtype: "button",
           buttonType: "primary", // 按钮样式
-          buttonText: "新建用户",
+          buttonText: "去购物车",
           containerStyle: "float:right",
-          onClick: createUserFun
+          onClick: toShopCartFun
         }]
       }],
       handleSelectionChange: handleSelectionChangeFun

@@ -7,6 +7,10 @@
  */
 const DetailPage = () => import('@/pages/product/detail.vue')
 const ProductListPage = () => import('@/pages/product/productList.vue')
+
+// 二级子模块 - 购物车
+import shopCart from './shopcart/shopCart'
+
 export default [{
   path: '/product/detail',
   name: 'product-detail',
@@ -15,4 +19,6 @@ export default [{
   path: '/product/list',
   name: 'product-list',
   component: ProductListPage
-}]
+},
+  ...shopCart
+]

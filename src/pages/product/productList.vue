@@ -11,8 +11,11 @@
   </el-main>
 </template>
 <script>
+  // js文件小驼峰
   import testAPIs from '../../api/testAPIs'
   import productListService from './service/productListService'
+
+  // Vue组件大驼峰
   import MTable from '@/components/table/Table.vue'
 
   export default {
@@ -41,8 +44,9 @@
     },
     methods: {
       initTable(dataList, pageNo, pageSize, total) {
-        console.log(dataList)
+//        console.log(dataList)
         let vm = this
+        let vuex = vm.$store.state.productStore.shopCartStore
 
         // 查询
         let searchFun = async () => {
@@ -51,9 +55,11 @@
           vm.tableOptions.data = data.result
         }
 
-        // 行编辑
-        let rowEditFun = (i, row) => {
-          alert(`我要编辑${JSON.stringify(row)}`)
+        // 加入购物车
+        let addCartFun = (i, row) => {
+          vuex.shopCartList.push(row)
+          vm.$store.dispatch("productStore/shopCartStore/addShopCart", { shopCartList: vuex.shopCartList })
+          vm.$message.success("加入购物车成功！")
         }
 
         // 行删除
@@ -63,7 +69,7 @@
 
         // 行重置密码
         let resetPwdFun = (i, row) => {
-          vm.$router.push({path: "/systemManage/userManage/editPassword"})
+          alert(`行重置密码${JSON.stringify(row)}`)
         }
 
         // 改变pageSize事件
@@ -80,9 +86,9 @@
           vm.tableOptions.data = data.result
         }
 
-        // 新建用户
-        let createUserFun = () => {
-          alert(`新建用户`)
+        // 去购物车
+        let toShopCartFun = () => {
+          vm.$router.push({ path: '/product/shopcart' })
         }
 
         // 选中行事件
@@ -97,12 +103,12 @@
           total: total
         }).getTableOptions({
           searchFun: searchFun,
-          rowEditFun: rowEditFun,
+          addCartFun: addCartFun,
           rowDeleteFun: rowDeleteFun,
           resetPwdFun: resetPwdFun,
           handleSizeChangeFun: handleSizeChangeFun,
           handleCurrentChangeFun: handleCurrentChangeFun,
-          createUserFun: createUserFun,
+          toShopCartFun: toShopCartFun,
           handleSelectionChangeFun: handleSelectionChangeFun
         })
       }

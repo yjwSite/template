@@ -7,7 +7,8 @@
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
-import home from './home'
+import homeStore from './home/homeStore'
+import productStore from './product/productStore'
 
 Vue.use(Vuex)
 
@@ -16,7 +17,8 @@ const store = () => new Vuex.Store({
     fileServer: 'http://172.16.126.140/image'
   },
   modules: {
-    home
+    homeStore,
+    productStore
   }
 })
 
