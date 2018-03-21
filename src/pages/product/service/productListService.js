@@ -11,7 +11,7 @@ class productListService {
   constructor (data) {
     this.data = data
   }
-  getTableOptions ({ searchFun, addCartFun, rowDeleteFun, resetPwdFun, handleSizeChangeFun, handleCurrentChangeFun, toShopCartFun, handleSelectionChangeFun }) {
+  getTableOptions ({ searchFun, addCartFun, rowDeleteFun, resetPwdFun, handleSizeChangeFun, handleCurrentChangeFun, toShopCartFun, handleSelectionChangeFun, formatter }) {
     let self = this
     let options = {
       thead: [{
@@ -29,7 +29,8 @@ class productListService {
       },{
         prop: "categoryName", // 数据的key值
         label: "邮箱", // 显示的标题
-        width: "180" // 列宽
+        width: "180", // 列宽
+        formatter: formatter
       },{
         prop: "categoryName", // 数据的key值
         label: "角色", // 显示的标题

@@ -96,6 +96,19 @@
           alert(`您选中了${rows.length}行`)
         }
 
+        let formatter = (row, column, cellValue) => {
+
+          // jsx
+          let contentStr = <div>
+                          <span>1</span>
+                          <span>|</span>
+                          <span>2</span>
+                          <span>人</span>
+                          </div>;
+
+          return contentStr
+        }
+
         vm.tableOptions = productListService({
           dataList: dataList,
           pageNo: pageNo,
@@ -109,7 +122,8 @@
           handleSizeChangeFun: handleSizeChangeFun,
           handleCurrentChangeFun: handleCurrentChangeFun,
           toShopCartFun: toShopCartFun,
-          handleSelectionChangeFun: handleSelectionChangeFun
+          handleSelectionChangeFun: handleSelectionChangeFun,
+          formatter: formatter
         })
       }
     }
