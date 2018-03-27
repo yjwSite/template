@@ -30,6 +30,11 @@
               产品列表
             </router-link>
           </el-col>
+          <el-col :span="3">
+            <router-link :to="{ path: '/user/list' }" :class="{ act: menuState==='userList' }">
+              用户列表
+            </router-link>
+          </el-col>
         </el-row>
       </el-col>
       <el-col class="adminInfo" :span="3">

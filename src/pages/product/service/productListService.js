@@ -6,12 +6,14 @@
  * 描述 ：业务逻辑层 - 产品列表
  */
 "use strict" // 定义为严格模式编码要求
+import commonService from '../../commonService'
 
-class productListService {
+class productListService extends commonService {
   constructor (data) {
+    super()
     this.data = data
   }
-  getTableOptions ({ searchFun, addCartFun, rowDeleteFun, resetPwdFun, handleSizeChangeFun, handleCurrentChangeFun, toShopCartFun, handleSelectionChangeFun, formatter }) {
+  getTableOptions ({ searchFun, addCartFun, rowDeleteFun, resetPwdFun, handleSizeChangeFun, handleCurrentChangeFun, toShopCartFun, handleSelectionChangeFun, formatter, queryStringFun, handleSelectFun }) {
     let self = this
     let options = {
       thead: [{
@@ -78,10 +80,13 @@ class productListService {
           containerStyle: "float:right",
           onClick: searchFun
         },{
-          xtype: "text",
+          xtype: "autocomplete",
           defaultText: "请输入查找的内容",
           containerStyle: "float:right",
-          ref: "keyword"
+          ref: "keyword",
+          triggerOnFocus: false,
+          querySearch: queryStringFun,
+          handleSelect: handleSelectFun
         }]
       },{
         xtype: "toolbarRow",

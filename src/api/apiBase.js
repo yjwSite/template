@@ -24,6 +24,4 @@ class apiBase {
   }
 }
 
-export default (data) => {
-  return new apiBase(data)
-}
+export default apiBase

@@ -10,6 +10,7 @@
 *                    操作列加入下拉菜单功能
 *                    枚举分页栏样式布局
 *        2018/03/27: 表格显示加入links列
+*                    工具栏加入autocomplete自动提示搜索框
 */
 <template>
   <el-container class="tableContainer is-vertical">
@@ -62,6 +63,16 @@
             :style="toolbarItem.style">
             {{ toolbarItem.text }}
           </label>
+          <el-autocomplete
+            v-if="toolbarItem.xtype==='autocomplete'"
+            v-model="toolbarItem.value"
+            :fetch-suggestions="toolbarItem.querySearch"
+            :placeholder="toolbarItem.defaultText"
+            :trigger-on-focus="toolbarItem.triggerOnFocus"
+            :ref="toolbarItem.ref"
+            :style="toolbarItem.style"
+            @select="toolbarItem.handleSelect"
+          ></el-autocomplete>
         </div>
       </el-col>
     </el-row>
