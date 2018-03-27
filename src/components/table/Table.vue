@@ -9,6 +9,7 @@
 *                    表格显示加入iconLink、iconText、纯iconImage、标签tag列
 *                    操作列加入下拉菜单功能
 *                    枚举分页栏样式布局
+*        2018/03/27: 表格显示加入links列
 */
 <template>
   <el-container class="tableContainer is-vertical">
@@ -142,6 +143,20 @@
           :render-header="item.renderHeader">
           <template slot-scope="scope">
             <div :id="`tb_echarts_${scope.$index}`" ref="echarts" @click="item.onClick(scope.$index, scope.row)" :style="item.style || 'width: 200px; height: 200px;margin-left: 50%;transform: translate(-50%);'"></div>
+          </template>
+        </el-table-column>
+        <el-table-column
+          v-else-if="item.xtype==='links'"
+          :fixed="item.fixed"
+          :width="item.width"
+          :align="item.align || 'center'"
+          :label="item.label"
+          :prop="item.prop"
+          :render-header="item.renderHeader">
+          <template slot-scope="scope">
+            <a v-for="link in scope.row[item.prop]"  :class="item.linkClassName" :style="item.linkStyle" @click="item.OnClick(link)">
+              {{link[item.textProp]}}
+            </a>
           </template>
         </el-table-column>
         <el-table-column v-else
