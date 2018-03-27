@@ -18,7 +18,7 @@
     "d3": "^3.5.17",
     "echarts": "^3.7.2",
     "highcharts": "^6.0.2",
-    "element-ui": "^2.0.4",
+    "element-ui": "^2.2.2",
     "jquery": "^3.2.1",
     "layui-layer": "^1.0.9",
     "lodash": "^4.17.4",

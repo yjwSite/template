@@ -1,5 +1,5 @@
 <template>
-  <el-container id="app" class="is-vertical">
+  <el-container id="app" class="containerMain is-vertical">
     <router-view/>
   </el-container>
 </template>
@@ -16,7 +16,7 @@
   @import "./assets/less/common.less";
 
   .containerMain {
-    min-width: 1000px;
+    min-width: 1190px;
   }
   .el-container.is-vertical {
     flex-direction: column;
