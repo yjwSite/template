@@ -5,7 +5,7 @@
  *
  * 描述 ：页面token验证
  */
-import authAPIs from '../api/authAPIs'
+import authAPIs from '../api/auth/authAPIs'
 export default (to, from, next) => {
   // console.log("userId", localStorage)
   if(localStorage.token){

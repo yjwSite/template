@@ -12,7 +12,7 @@
 </template>
 <script>
   // js文件小驼峰
-  import testAPIs from '../../api/testAPIs'
+  import testAPIs from '../../api/test/testAPIs'
   import productListService from './service/productListService'
 
   // Vue组件大驼峰

@@ -5,8 +5,8 @@
  *
  * 描述 ：接口类 - 测试
  */
-import apiBase from './apiBase'
-import apiFactory from './apiFactory'
+import apiBase from '../apiBase'
+import apiFactory from '../apiFactory'
 
 const module = {
   moduleName: "test",
