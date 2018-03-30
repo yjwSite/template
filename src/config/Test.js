@@ -7,6 +7,27 @@
  */
 export default {
   env: 'test',
+  apiParams: {
+    // api接口通用参数获取策略
+    configs: [
+      // {
+      // type: "header", // 参数类型：header、parameter、
+      // keys: [{
+      //   name: "token", // 参数key
+      //   source: "localStorage" // 值的来源
+      // }, {
+      //   name: "accountId",
+      //   source: "cookie"
+      // }]
+      // },
+      {
+        type: "parameter",
+        keys: [{
+          name: "token", // 参数key
+          source: "localStorage" // 值的来源
+        }]
+      }]
+  },
   apis:{
     modules:{
       // 目录审核

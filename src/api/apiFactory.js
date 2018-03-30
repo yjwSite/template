@@ -8,6 +8,7 @@
 import config from '../config'
 import $ajax from '../plugins/axios'
 import headerConfig from './headerConfig'
+import apiUtils from './apiUtils'
 
 export default (module) => {
 
@@ -21,7 +22,9 @@ export default (module) => {
         delete params.URI
       }
 
-      // 所有接口必传参数
+      // 加载全局参数
+      params = apiUtils.loadGlobalParams(params, "parameter")
+
       return $ajax({
         method: item.method,
         url: `${config.apis.modules[module.moduleName].host}${config.apis.modules[module.moduleName].url || config.apis.defaultUrl}${item.url}${locationId}`,
