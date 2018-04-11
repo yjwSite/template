@@ -2,7 +2,7 @@
   "name": "vue-cli-template",
   "version": "1.2.0",
   "description": "the template of vue2",
-  "author": "shocaokuangmo",
+  "author": "shicaokuangmo",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
