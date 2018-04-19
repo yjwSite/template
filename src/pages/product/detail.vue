@@ -15,43 +15,43 @@
   </el-main>
 </template>
 <script>
-  import UEditor from '@/components/ueditor/UEditor.vue'
-  export default {
-    name: 'detail',
-    components: {
-      UEditor
-    },
-    data () {
-      return {
-        UEditorOptions: {
-          containerStyle: "width: 100%;",
-          config: {
-            // ueditor的自定义配置
-          }
+import UEditor from '@/components/ueditor/UEditor.vue'
+export default {
+  name: 'detail',
+  components: {
+    UEditor
+  },
+  data () {
+    return {
+      UEditorOptions: {
+        containerStyle: 'width: 100%;',
+        config: {
+          // ueditor的自定义配置
         }
       }
-    },
-    mounted () {
+    }
+  },
+  mounted () {
+    let vm = this
+    vm.$refs.myEditor.getInstance().ready(() => {
+      vm.$refs.myEditor.getInstance().setContent("<p style='color:red;'>初始化赋值</p>")
+    })
+  },
+  methods: {
+    getContent () {
       let vm = this
-      vm.$refs.myEditor.getInstance().ready(()=>{
-        vm.$refs.myEditor.getInstance().setContent("<p style='color:red;'>初始化赋值</p>")
-      })
+      console.log(vm.$refs.myEditor.getInstance().getContentTxt())
     },
-    methods: {
-      getContent () {
-        let vm = this
-        console.log(vm.$refs.myEditor.getInstance().getContentTxt())
-      },
-      getHtmlContent () {
-        let vm = this
-        console.log(vm.$refs.myEditor.getInstance().getContent())
-      },
-      setContent () {
-        let vm = this
-        vm.$refs.myEditor.getInstance().setContent("<p style='color:red;'>初始化赋值</p>")
-      }
+    getHtmlContent () {
+      let vm = this
+      console.log(vm.$refs.myEditor.getInstance().getContent())
+    },
+    setContent () {
+      let vm = this
+      vm.$refs.myEditor.getInstance().setContent("<p style='color:red;'>初始化赋值</p>")
     }
   }
+}
 </script>
 
 <style lang="less" scoped>

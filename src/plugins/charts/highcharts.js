@@ -5,14 +5,14 @@
  *
  * 描述 ：Highcharts驱动类
  */
-"use strict" // 定义为严格模式编码要求
+'use strict' // 定义为严格模式编码要求
 
 import Highcharts from 'highcharts/highstock'
 
 // 加载 地图 模块
-require('highcharts/modules/map')(Highcharts);
+require('highcharts/modules/map')(Highcharts)
 
 export default (id, option) => {
   // 创建图表
-  Highcharts.chart(id, option);
+  Highcharts.chart(id, option)
 }

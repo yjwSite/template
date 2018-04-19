@@ -13,16 +13,15 @@
   </el-menu>
 </template>
 <script>
+import MItems from './LeftBarChild'
 
-  import MItems from './LeftBarChild'
-
-  export default {
-    name: 'LeftBar',
-    props: ["options"],
-    components: {
-      MItems
-    }
+export default {
+  name: 'LeftBar',
+  props: ['options'],
+  components: {
+    MItems
   }
+}
 </script>
 <style>
 

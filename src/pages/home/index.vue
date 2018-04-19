@@ -15,47 +15,47 @@
   </el-container>
 </template>
 <script>
-  import HeaderBar from '@/components/header/Header.vue'
-  import BreadCrumb from '@/components/breadcrumb/BreadCrumb.vue'
-  export default {
-    name: 'index',
-    components: {
-      HeaderBar,
-      BreadCrumb
-    },
-    data () {
-      return {
-        menuState: 'home',
-        breadOptions:{
-          bread:[
-            {
-              label:"一级",
-              path:"/"
-            },{
-              label:"二级",
-              path:"/"
-            },{
-              label:"三级",
-              path:"/"
-            },{
-              label:"四级",
-              path:"/"
-            }
-          ]
-        }
+import HeaderBar from '@/components/header/Header.vue'
+import BreadCrumb from '@/components/breadcrumb/BreadCrumb.vue'
+export default {
+  name: 'index',
+  components: {
+    HeaderBar,
+    BreadCrumb
+  },
+  data () {
+    return {
+      menuState: 'home',
+      breadOptions: {
+        bread: [
+          {
+            label: '一级',
+            path: '/'
+          }, {
+            label: '二级',
+            path: '/'
+          }, {
+            label: '三级',
+            path: '/'
+          }, {
+            label: '四级',
+            path: '/'
+          }
+        ]
       }
-    },
-    mounted () {
-      // layui-layer
-      layer.alert('hello world!')
-      // lodash
-      let arr = _.chunk(['a', 'b', 'c', 'd'], 3)
-      console.log(arr)
-    },
-    methods: {
-
     }
+  },
+  mounted () {
+    // layui-layer
+    layer.alert('hello world!')
+    // lodash
+    let arr = _.chunk(['a', 'b', 'c', 'd'], 3)
+    console.log(arr)
+  },
+  methods: {
+
   }
+}
 </script>
 
 <style lang="less" scoped>

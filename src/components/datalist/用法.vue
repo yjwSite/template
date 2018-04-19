@@ -26,21 +26,21 @@
   </el-main>
 </template>
 <script>
-  import MDataList from '@/components/datalist/DataList.vue'
-  export default {
-    name: 'appMarket',
-    components: {
-      MDataList
-    },
-    data() {
-      return {
-        datalistOptions: {}
-      }
-    },
-    mounted: async function () {
-      let vm = this,
-        pageNo = 1,
-        pageSize = 15
+import MDataList from '@/components/datalist/DataList.vue'
+export default {
+  name: 'appMarket',
+  components: {
+    MDataList
+  },
+  data () {
+    return {
+      datalistOptions: {}
+    }
+  },
+  mounted: async function () {
+    let vm = this,
+      pageNo = 1,
+      pageSize = 15
 
       /*
       let [tagList, dataList] = await Promise.all([
@@ -49,53 +49,53 @@
       ])
       vm.initDataList(dataList.data.result.datas, pageNo, pageSize, parseInt(dataList.data.result.total))
       */
-    },
-    methods: {
-      initDataList (dataList, pageNo, pageSize, total) {
-        let vm = this
+  },
+  methods: {
+    initDataList (dataList, pageNo, pageSize, total) {
+      let vm = this
 
-        // 改变pageSize事件
-        let handleSizeChangeFun = async (val) => {
-          vm.datalistOptions.pageInfo.pageSize = val
-        }
-
-        // 改变currentPage事件
-        let handleCurrentChangeFun = async (val) => {
-          vm.datalistOptions.pageInfo.currentPage = val
-
-          let keyword = vm.$refs.searchBar.$refs.keyword.$refs.input.value
-          let labels = vm.searchOptions.checkGroup.join(",")
-
-          let {data} = await appsAPIs.apps({
-            appType: 0,
-            label: labels=="0"?"":labels,
-            name: keyword,
-            pageSize: vm.datalistOptions.pageInfo.pageSize,
-            pageNumber: vm.datalistOptions.pageInfo.currentPage
-          })
-
-          vm.datalistOptions.data = data.result.datas
-        }
-
-        // 服务详情点击事件
-        let detailsOnClickFun = (item) => {
-//          console.log(item)
-          vm.$router.push({ path: '/front/serviceAbility/details' })
-        }
-
-        vm.datalistOptions = appMarketService({
-          dataList: dataList,
-          pageNo: pageNo,
-          pageSize: pageSize,
-          total: total
-        }).getDataListOptions({
-          handleSizeChangeFun,
-          handleCurrentChangeFun,
-          detailsOnClickFun
-        })
+      // 改变pageSize事件
+      let handleSizeChangeFun = async (val) => {
+        vm.datalistOptions.pageInfo.pageSize = val
       }
+
+      // 改变currentPage事件
+      let handleCurrentChangeFun = async (val) => {
+        vm.datalistOptions.pageInfo.currentPage = val
+
+        let keyword = vm.$refs.searchBar.$refs.keyword.$refs.input.value
+        let labels = vm.searchOptions.checkGroup.join(',')
+
+        let {data} = await appsAPIs.apps({
+          appType: 0,
+          label: labels == '0' ? '':labels,
+          name: keyword,
+          pageSize: vm.datalistOptions.pageInfo.pageSize,
+          pageNumber: vm.datalistOptions.pageInfo.currentPage
+        })
+
+        vm.datalistOptions.data = data.result.datas
+      }
+
+      // 服务详情点击事件
+      let detailsOnClickFun = (item) => {
+        //          console.log(item)
+        vm.$router.push({ path: '/front/serviceAbility/details' })
+      }
+
+      vm.datalistOptions = appMarketService({
+        dataList: dataList,
+        pageNo: pageNo,
+        pageSize: pageSize,
+        total: total
+      }).getDataListOptions({
+        handleSizeChangeFun,
+        handleCurrentChangeFun,
+        detailsOnClickFun
+      })
     }
   }
+}
 </script>
 
 <style lang="less" scoped>

@@ -8,11 +8,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// 一级页面
-const Index = () => import('@/pages/home/index.vue')
-// 布局页面
-const Layout = () => import('@/pages/layout.vue')
-
 // 产品模块
 import product from './product/product'
 // 用户模块
@@ -20,6 +15,11 @@ import user from './user/user'
 
 // 路由中间件
 import middlewares from '../middlewares'
+
+// 一级页面
+const Index = () => import('@/pages/home/index.vue')
+// 布局页面
+const Layout = () => import('@/pages/layout.vue')
 
 Vue.use(Router)
 
@@ -34,7 +34,7 @@ const router = new Router({
       path: '/manage',
       name: 'manage',
       component: Layout,
-      children:[
+      children: [
         ...product,
         ...user
       ]

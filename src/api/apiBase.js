@@ -5,23 +5,21 @@
  *
  * 描述 ：api请求基类
  */
-class apiBase {
-  constructor() {
-  }
+class ApiBase {
   requestFun (config) {
-    console.log("api请求基类===================>请求拦截：", JSON.stringify(config))
+    console.log('api请求基类===================>请求拦截：', JSON.stringify(config))
     return config
   }
   requestError (error) {
-    console.log("api请求基类===================>请求错误拦截：", JSON.stringify(error))
+    console.log('api请求基类===================>请求错误拦截：', JSON.stringify(error))
   }
   responseFun (data) {
-    console.log("api请求基类===================>响应拦截：", JSON.stringify(data))
+    console.log('api请求基类===================>响应拦截：', JSON.stringify(data))
     return data
   }
   responseError (error) {
-    console.log("api请求基类===================>响应错误拦截：", JSON.stringify(error))
+    console.log('api请求基类===================>响应错误拦截：', JSON.stringify(error))
   }
 }
 
-export default apiBase
+export default ApiBase

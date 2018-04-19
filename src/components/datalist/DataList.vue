@@ -35,10 +35,10 @@
   </el-container>
 </template>
 <script>
-  export default {
-    name: 'DataList',
-    props: ['options']
-  }
+export default {
+  name: 'DataList',
+  props: ['options']
+}
 </script>
 <style lang="less" scoped>
   @import "datalist.less";

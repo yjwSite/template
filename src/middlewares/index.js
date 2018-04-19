@@ -16,11 +16,10 @@ export default (to, from, next) => {
     }
   })
 
-  if(allow){
+  if (allow) {
     // console.log(`不需要鉴权`)
     next()
-  }
-  else{
+  } else {
     // console.log(`需要鉴权`, to.fullPath)
     // checkToken(to, from, next)
     next()

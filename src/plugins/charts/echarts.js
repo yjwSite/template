@@ -5,22 +5,21 @@
  *
  * 描述 ：ECharts3.0驱动类
  */
-"use strict" // 定义为严格模式编码要求
+'use strict' // 定义为严格模式编码要求
 
 import echarts from 'echarts'
 // import 'echarts/chart/map' // 2.0
 import 'echarts/map/js/china' // 3.0
 
-function getDom (id){
-  return document.getElementById(id);
+function getDom (id) {
+  return document.getElementById(id)
 };
 export default (id, option) => {
-
   // 基于准备好的dom，初始化echarts实例
-  var myChart = echarts.init(getDom(id));
+  var myChart = echarts.init(getDom(id))
 
   // 绘制图表
-  myChart.setOption(option);
+  myChart.setOption(option)
 
   return myChart
 }

@@ -19,15 +19,15 @@
   </el-menu>
 </template>
 <script>
-  export default {
-    name: 'NavBar',
-    props:['options'],
-    data(){
-      return {
-        activeIndex:"1"
-      }
+export default {
+  name: 'NavBar',
+  props: ['options'],
+  data () {
+    return {
+      activeIndex: '1'
     }
   }
+}
 </script>
 <style>
 </style>

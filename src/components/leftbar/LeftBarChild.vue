@@ -24,8 +24,8 @@
 
 </template>
 <script>
-  export default {
-    name: 'items',
-    props: ["item", "indexp"]
-  }
+export default {
+  name: 'items',
+  props: ['item', 'indexp']
+}
 </script>

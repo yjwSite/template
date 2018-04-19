@@ -21,40 +21,15 @@ export default {
       // }]
       // },
       {
-        type: "parameter",
+        type: 'parameter',
         keys: [{
-          name: "token", // 参数key
-          source: "localStorage" // 值的来源
+          name: 'token', // 参数key
+          source: 'localStorage' // 值的来源
         }]
       }]
   },
-  apis:{
-    modules:{
-      // 目录审核
-      checkDir: {
-        host: '',
-        url: '/checkDir'
-      },
-      // 目录管理
-      dir: {
-        host: '', // http://192.168.112.47:8081
-        url: '/dir'
-      },
-      // 系统管理
-      sys: {
-        host: '',
-        url: '/sys'
-      },
-      // 授权模块
-      auth: {
-        host: '',
-        url: ''
-      },
-      // 模板管理
-      template: {
-        host: '',
-        url: '/template'
-      },
+  apis: {
+    modules: {
       // 部门管理
       department: {
         host: '',
@@ -76,15 +51,15 @@ export default {
         url: '/portalInterface'
       }
     },
-    defaultHost: 'http://www.test.com',//'http://192.168.112.3:8089',//'',//'http://210.13.50.98:10133', //http://www.youedata.com/portalInterface/goods/category
+    defaultHost: 'http://www.test.com', // 'http://192.168.112.3:8089',//'',//'http://210.13.50.98:10133', //http://www.youedata.com/portalInterface/goods/category
     defaultUrl: ''
   },
-  siteInfo:{
+  siteInfo: {
     // 多站点配置
     sites: {
       login_site_host: 'http://login.mainsite.com/', // 登录站地址
-      main_site_host: 'http://www.mainsite.com/',  // 本站地址
-      file_server_url: "http://www.test.com"   // 文件服务器地址
+      main_site_host: 'http://www.mainsite.com/', // 本站地址
+      file_server_url: 'http://www.test.com' // 文件服务器地址
     }
   }
 }

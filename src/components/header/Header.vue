@@ -45,18 +45,18 @@
   </el-header>
 </template>
 <script>
-  export default {
-    props: ["menuState"],
-    name: 'HeaderBar',
-    data() {
-      return {
-        userName: "未知用户"
-      }
-    },
-    mounted: function () {
-    },
-    methods: {}
-  }
+export default {
+  props: ['menuState'],
+  name: 'HeaderBar',
+  data () {
+    return {
+      userName: '未知用户'
+    }
+  },
+  mounted: function () {
+  },
+  methods: {}
+}
 </script>
 
 <style scoped>

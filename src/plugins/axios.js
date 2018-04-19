@@ -8,45 +8,41 @@
 import config from '../config'
 import $ajax from 'axios'
 
-function getOptions({ method, url, data, headers }) {
+function getOptions ({ method, url, data, headers }) {
   let $ajaxOptions = {}
 
-  if("string" != typeof method){
-    throw new Error("url must be string !")
+  if (typeof method !== 'string') {
+    throw new Error('url must be string !')
   }
 
-  if("object" != typeof data){
+  if (typeof data !== 'object') {
     data = {}
   }
 
-  if("post" == method.toLowerCase()){
-    $ajaxOptions["method"] = "POST"
-    $ajaxOptions["data"] = data
-  }
-  else if("put" == method.toLowerCase()){
-    $ajaxOptions["method"] = "PUT"
-    $ajaxOptions["data"] = data
-  }
-  else if("delete" == method.toLowerCase()){
-    $ajaxOptions["method"] = "DELETE"
-    $ajaxOptions["params"] = data
-  }
-  else if("patch" == method.toLowerCase()){
-    $ajaxOptions["method"] = "PATCH"
-    $ajaxOptions["params"] = data
-  }
-  else{
-    $ajaxOptions["method"] = "GET"
-    $ajaxOptions["params"] = data
+  if (method.toLowerCase() === 'post') {
+    $ajaxOptions['method'] = 'POST'
+    $ajaxOptions['data'] = data
+  } else if (method.toLowerCase() === 'put') {
+    $ajaxOptions['method'] = 'PUT'
+    $ajaxOptions['data'] = data
+  } else if (method.toLowerCase() === 'delete') {
+    $ajaxOptions['method'] = 'DELETE'
+    $ajaxOptions['params'] = data
+  } else if (method.toLowerCase() === 'patch') {
+    $ajaxOptions['method'] = 'PATCH'
+    $ajaxOptions['params'] = data
+  } else {
+    $ajaxOptions['method'] = 'GET'
+    $ajaxOptions['params'] = data
   }
 
-  if("string" != typeof url){
-    throw new Error("url must be string !")
+  if (typeof url !== 'string') {
+    throw new Error('url must be string !')
   }
 
-  $ajaxOptions["url"] = url
-  $ajaxOptions["baseURL"] = config.apis.defaultHost
-  $ajaxOptions["headers"] = headers
+  $ajaxOptions['url'] = url
+  $ajaxOptions['baseURL'] = config.apis.defaultHost
+  $ajaxOptions['headers'] = headers
 
   /* 【如果需要 x-www-form-urlencoded 这种方式提交，请解开注释】 */
   // $ajaxOptions["transformRequest"] = [function transformRequest (data, headers) {
@@ -63,20 +59,19 @@ function getOptions({ method, url, data, headers }) {
   //   return data
   // }]
 
-
   return $ajaxOptions
 }
 
 // export default
 export default ({
-                  method,
-                  url,
-                  data,
-                  requestFun,
-                  requestError,
-                  responseFun,
-                  responseError,
-                  headers = { "Content-Type" : "application/x-www-form-urlencoded" }
+  method,
+  url,
+  data,
+  requestFun,
+  requestError,
+  responseFun,
+  responseError,
+  headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
 }) => {
   let $options = getOptions({
     method: method,
@@ -92,8 +87,7 @@ export default ({
     // 响应拦截器
     $ajax.interceptors.response.use(responseFun, responseError)
     return $ajax($options)
-  }
-  catch (ex) {
+  } catch (ex) {
     throw new Error(`network exception ! \n ex:${ex.message} \n method:${method} \n url:${url} \n params:${JSON.stringify(data)}`)
   }
 }

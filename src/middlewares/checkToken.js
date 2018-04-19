@@ -8,9 +8,9 @@
 import authAPIs from '../api/auth/authAPIs'
 export default (to, from, next) => {
   // console.log("userId", localStorage)
-  if(localStorage.token){
+  if (localStorage.token) {
     authAPIs.checkToken({
-      token: "token"
+      token: 'token'
     }).then(({ data }) => {
       // if(data.code == 10012) {
       //   next()
@@ -25,8 +25,7 @@ export default (to, from, next) => {
     }).catch(ex => {
       next()
     })
-  }
-  else{
+  } else {
     next(false)
     next({
       path: '/login',

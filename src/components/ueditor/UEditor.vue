@@ -11,29 +11,29 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'UEditor',
-    props: ['options'],
-    data() {
-      return {
-        editor: null
-      }
-    },
-    mounted () {
-      // 初始化UE http://blog.csdn.net/zrk1000/article/details/46865093
-      let vm = this
-      UE.delEditor('editor')
-      vm.editor = UE.getEditor('editor', vm.$props.options.config)
-    },
-    destoryed () {
-      this.editor.destory();
-    },
-    methods:{
-      getInstance () {
-        return this.editor;
-      }
+export default {
+  name: 'UEditor',
+  props: ['options'],
+  data () {
+    return {
+      editor: null
+    }
+  },
+  mounted () {
+    // 初始化UE http://blog.csdn.net/zrk1000/article/details/46865093
+    let vm = this
+    UE.delEditor('editor')
+    vm.editor = UE.getEditor('editor', vm.$props.options.config)
+  },
+  destoryed () {
+    this.editor.destory()
+  },
+  methods: {
+    getInstance () {
+      return this.editor
     }
   }
+}
 </script>
 <style lang="less" scoped>
 </style>

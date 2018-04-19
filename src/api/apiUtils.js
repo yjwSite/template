@@ -8,15 +8,14 @@
 import config from '../config'
 
 // 加载全局参数
-function loadGlobalParams(targetObj, type) {
-  if(config.apiParams && config.apiParams.configs){
+function loadGlobalParams (targetObj, type) {
+  if (config.apiParams && config.apiParams.configs) {
     config.apiParams.configs.forEach((item, i) => {
-      if(item.type === type){
+      if (item.type === type) {
         item.keys.forEach((key, i) => {
-          if(key.source === "localStorage") {
+          if (key.source === 'localStorage') {
             targetObj[key.name] = localStorage[key.name]
-          }
-          else if(key.source === "cookie") {
+          } else if (key.source === 'cookie') {
             // 待实现
           }
         })
@@ -24,8 +23,7 @@ function loadGlobalParams(targetObj, type) {
     })
 
     return targetObj
-  }
-  else{
+  } else {
     throw new Error(`apiParams exception ! \n apiParams:${config.apiParams}`)
   }
 }

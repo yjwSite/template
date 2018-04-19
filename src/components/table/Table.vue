@@ -240,23 +240,20 @@
 </template>
 
 <script>
-  export default {
-    name: 'MTable',
-    props: ['options'],
-    data () {
-      return {
-        fileList: []
-      }
-    },
-    methods: {
-      getRefs (refName) {
-        if(this.$refs[refName])
-          return this.$refs[refName][0]
-        else
-          throw new Error(`the control ${refName} is undefined !`)
-      }
+export default {
+  name: 'MTable',
+  props: ['options'],
+  data () {
+    return {
+      fileList: []
+    }
+  },
+  methods: {
+    getRefs (refName) {
+      if (this.$refs[refName]) { return this.$refs[refName][0] } else { throw new Error(`the control ${refName} is undefined !`) }
     }
   }
+}
 </script>
 <style scoped>
   .tableContainer{

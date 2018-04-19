@@ -11,19 +11,18 @@ import headerConfig from './headerConfig'
 import apiUtils from './apiUtils'
 
 export default (module) => {
-
   let apiObject = {}
 
   module.apis.forEach((item) => {
     apiObject[item.name] = (params) => {
-      let locationId = ""
-      if(params && params.URI) {
+      let locationId = ''
+      if (params && params.URI) {
         locationId = `/${params.URI}`
         delete params.URI
       }
 
       // 加载全局参数
-      params = apiUtils.loadGlobalParams(params, "parameter")
+      params = apiUtils.loadGlobalParams(params, 'parameter')
 
       return $ajax({
         method: item.method,

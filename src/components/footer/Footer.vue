@@ -12,30 +12,30 @@
   </el-footer>
 </template>
 <script>
-  export default {
-    name: 'Footer',
-    data () {
-      return {
-        hook: true
-      }
-    },
-    mounted: function () {
-//      var total = document.documentElement.clientHeight;
-//      $(".loginContainer").css({"height": total - 88});
-//      document.addEventListener("DOMSubtreeModified", function (evt) {
-//        //var total = document.documentElement.clientHeight;
-//        var appHeight = $("#app").height();
-//        if (appHeight < total) {
-//          $("#footer").addClass("footerFixed");
-//          return;
-//        } else {
-//          $("#footer").removeClass("footerFixed");
-//          return;
-//        }
-//      }, false);
-
+export default {
+  name: 'Footer',
+  data () {
+    return {
+      hook: true
     }
+  },
+  mounted: function () {
+    //      var total = document.documentElement.clientHeight;
+    //      $(".loginContainer").css({"height": total - 88});
+    //      document.addEventListener("DOMSubtreeModified", function (evt) {
+    //        //var total = document.documentElement.clientHeight;
+    //        var appHeight = $("#app").height();
+    //        if (appHeight < total) {
+    //          $("#footer").addClass("footerFixed");
+    //          return;
+    //        } else {
+    //          $("#footer").removeClass("footerFixed");
+    //          return;
+    //        }
+    //      }, false);
+
   }
+}
 </script>
 
 <style scoped>

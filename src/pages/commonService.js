@@ -5,8 +5,8 @@
  *
  * 描述 ：通用业务逻辑处理类
  */
-class commonService {
-  constructor(data) {
+class CommonService {
+  constructor (data) {
     this.data = data
   }
   getQueryStringData (datalist) {
@@ -17,4 +17,4 @@ class commonService {
   }
 }
 
-export default commonService
+export default CommonService

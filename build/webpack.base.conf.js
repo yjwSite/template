@@ -1,9 +1,13 @@
-'use strict'
-const webpack = require('webpack')
-const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+'use strict';
+
+const webpack = require('webpack');
+const path = require('path');
+const utils = require('./utils');
+const config = require('../config');
+const vueLoaderConfig = require('./vue-loader.conf');
+
+// eslint
+const eslintFriendlyFormatter = require('eslint-friendly-formatter');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -35,15 +39,30 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(js|vue)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [resolve('src'), resolve('test')],
+        options: {
+          formatter: eslintFriendlyFormatter, // eslint-friendly-formatter 可以让eslint的错误信息出现在终端上
+          emitError: true // 如果不符合规范，触发错误
+          // outputReport: {
+          //   filePath: 'checkstyle.xml',
+          //   formatter: resolve('node_modules/eslint/lib/formatters/checkstyle')
+          // }
+        }
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
-      },
+      // { 被eslint配置替代
+      //   test: /\.js$/,
+      //   loader: 'babel-loader',
+      //   include: [resolve('src'), resolve('test')]
+      // },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',

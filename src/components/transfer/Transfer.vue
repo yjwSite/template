@@ -78,16 +78,16 @@
 </template>
 
 <script>
-  export default {
-    props:["options"],
-    data() {
-      return {
-        data:[],
-        value3:['1'],
-        fileList:[]
-      }
+export default {
+  props: ['options'],
+  data () {
+    return {
+      data: [],
+      value3: ['1'],
+      fileList: []
     }
-  };
+  }
+  }
 </script>
 
 <style>

@@ -16,10 +16,10 @@
   </el-breadcrumb>
 </template>
 <script>
-  export default {
-    name: 'BreadCrumb',
-    props: ['options']
-  }
+export default {
+  name: 'BreadCrumb',
+  props: ['options']
+}
 </script>
 
 <style scoped>
